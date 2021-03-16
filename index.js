@@ -11,6 +11,13 @@ const expressLayouts = require('express-ejs-layouts');
 
 app.use(expressLayouts);
 
+// accessing the static files by using middleware
+app.use(express.static('./assets'));
+
+//extract styles and scripts from sub pages into layout
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
+
 // setting up the view engine
 app.set('view engine','ejs');
 
