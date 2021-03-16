@@ -6,6 +6,11 @@ const port = 8000
 // firing up the express server
 const app = express();
 
+// accessing the express-ejs-layouts library
+const expressLayouts = require('express-ejs-layouts');
+
+app.use(expressLayouts);
+
 // setting up the view engine
 app.set('view engine','ejs');
 
