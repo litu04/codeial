@@ -1,0 +1,22 @@
+{
+  "name": "codeial",
+  "version": "1.0.0",
+  "description": "creating a social media website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litu04/codeial.git"
+  },
+  "author": "DK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/litu04/codeial/issues"
+  },
+  "homepage": "https://github.com/litu04/codeial#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
