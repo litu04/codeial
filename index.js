@@ -6,6 +6,12 @@ const port = 8000
 // firing up the express server
 const app = express();
 
+// setting up the view engine
+app.set('view engine','ejs');
+
+// accessing the views folder
+app.set('views','./views');
+
 // use express router
 app.use('/',require('./routes/app'));
 

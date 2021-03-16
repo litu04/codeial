@@ -1,5 +1,9 @@
 module.exports.profile = function(req,res){
-    return res.send("<h1>Welcome to the Profile page</h1>");
+    //return res.send("<h1>Welcome to the Profile page</h1>");
+
+    return res.render('profile',{
+        title: 'profile'
+    });
 }
 
 module.exports.signUp = function(req,res){
