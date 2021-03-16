@@ -2,8 +2,13 @@
 const express = require('express');
 
 const port = 8000
+
 // firing up the express server
 const app = express();
+
+// use express router
+app.use('/',require('./routes/app'));
+
 
 app.listen(port,function(err){
     if(err){
