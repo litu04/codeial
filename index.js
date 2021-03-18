@@ -9,7 +9,18 @@ const app = express();
 // accessing the express-ejs-layouts library
 const expressLayouts = require('express-ejs-layouts');
 
+// importing the db(mongoose)
+const db = require('./config/mongoose');
+
+// accessing the cookie library
+const cookieParser = require('cookie-parser');
+
 app.use(expressLayouts);
+
+// to encode and analyze the parse data through middleware
+app.use(express.urlencoded());
+
+app.use(cookieParser());
 
 // accessing the static files by using middleware
 app.use(express.static('./assets'));
