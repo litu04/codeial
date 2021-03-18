@@ -64,3 +64,32 @@ module.exports.create = function(req,res){
     });
 }
 
+// getting the sign-in data
+module.exports.createSession = function(req,res){
+    // steps to authenticate
+
+    // find the user
+    User.findOne({email: req.body.email},function(err,user){
+        if(err){
+            console.log("Error in finding user presence while signing-in",err);
+            return;
+        }
+        console.log("******",user)
+        
+        // handle user found
+        console.log("old password",user.password);
+        console.log("new password",req.body.password);
+        if(user){
+            if(user.password != req.body.password){
+                return res.redirect('back');
+            }
+
+            // handle session creation
+            res.cookie('user_id',user.id);
+            return res.redirect('/users/profile');
+        }else {
+            // if user not found
+            return res.redirect('back');
+        }
+    });
+}
