@@ -1,0 +1,9 @@
+#layout-footer {
+  background-color: grey;
+  display: flex;
+  justify-content: flex-start; }
+  #layout-footer .footer-nav ul li {
+    list-style: none; }
+    #layout-footer .footer-nav ul li a {
+      color: white;
+      text-decoration: none; }
