@@ -14,4 +14,7 @@ router.get('/',homeController.home);
 // route for the '/users'
 router.use('/users',require('./users'));
 
+// route for the '/posts'
+router.use('/posts',require('./posts'));
+
 module.exports = router;
