@@ -1,6 +1,5 @@
-const { user } = require('../config/mongoose');
-const { populate } = require('../models/post');
 const Post = require('../models/post');
+const User = require('../models/user');
 
 module.exports.home = function(req,res){
     //console.log(req);
@@ -8,12 +7,36 @@ module.exports.home = function(req,res){
     //console.log("cookies",req.cookies);
     //res.cookie('something','this');
     
-    // findinding the user and populating the post of each user
-    Post.find({}).populate('user').exec(function(err,posts){
-        return res.render('home',{
-            title: 'home',
-            p: posts
+    // Post.find({}).populate('user').exec(function(err, posts){
+    //     if(err){
+    //         console.log("Error in populating post and finding user",err);
+    //         return;
+    //     }
+    //     console.log("******Posts******", posts);
+    //     return res.render('home', {
+    //         title: "Codeial | Home",
+    //         p:  posts
+    //     });
+    // });
+    //finding the user and populating the post of each user
+    Post.find({})
+    .populate('user')
+    .populate({
+        path: 'comments',
+        populate: {
+            path: 'user'
+        }
+    })
+    .exec(function(err, posts){
+
+        User.find({},function(err,users){
+            return res.render('home', {
+                title: "Codeial | Home",
+                posts:  posts,
+                all_users: users
+            });
         });
+        
     })
     
 }

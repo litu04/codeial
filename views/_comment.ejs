@@ -1,0 +1,15 @@
+<li>
+    <p>
+        <!-- checking if the user is signed in and if the signed-in user id is equal to the user id created the comment-->
+    <% if (locals.user && locals.user.id == comment.user.id) { %>
+        <small>
+            <a href="/comments/destroy/<%= comment.id %>">X</a>
+        </small>
+    <% } %>
+        <%= comment.content %>
+        <br>
+        <small>
+            <%= comment.user.name %>
+        </small>
+    </p>    
+</li>

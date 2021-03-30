@@ -4,7 +4,7 @@ const express = require('express');
 // firing up the express server
 const app = express();
 
-const port = 8000
+const port = 8000;
 
 // accessing the cookie library
 const cookieParser = require('cookie-parser');

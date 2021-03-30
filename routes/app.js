@@ -17,4 +17,7 @@ router.use('/users',require('./users'));
 // route for the '/posts'
 router.use('/posts',require('./posts'));
 
+// route for the '/comments'
+router.use('/comments',require('./comments'));
+
 module.exports = router;
