@@ -25,6 +25,11 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 // accessing the node-sass-middleware library
 const sassMiddleware = require('node-sass-middleware');
 
+// accessing the connect-flash module
+const flash = require('connect-flash');
+
+const customMware = require('./config/middleware');
+
 
 app.use(sassMiddleware({
     src: './assets/scss',
@@ -79,6 +84,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+// we need to use it after session is used because it use session-cookie
+app.use(flash());
+
+// using the custom middleware
+app.use(customMware.setFlash);
 
 // use express router
 app.use('/',require('./routes/app'));
