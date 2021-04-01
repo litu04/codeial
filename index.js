@@ -19,6 +19,11 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+
+// importing passport jwt
+const passportJWT = require('./config/passport-jwt-strategy');
+//importing the passport google oauth
+const passportGoogleStrategy = require('./config/passport-google-oauth-strategy');
 //const MongoStore = require('connect-mongo')(session);
 const MongoDBStore = require('connect-mongodb-session')(session);
 
@@ -48,6 +53,9 @@ app.use(cookieParser());
 
 // accessing the static files by using middleware
 app.use(express.static('./assets'));
+
+// make the uploads path available to the browser
+app.use('/uploads',express.static(__dirname + '/uploads'));
 
 app.use(expressLayouts);
 

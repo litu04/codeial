@@ -20,4 +20,7 @@ router.use('/posts',require('./posts'));
 // route for the '/comments'
 router.use('/comments',require('./comments'));
 
+// route for the '/api'
+router.use('/api',require('./api'));
+
 module.exports = router;
